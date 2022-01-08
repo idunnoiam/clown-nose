@@ -2,7 +2,9 @@ noseX = 0;
 noseY = 0;
 
 function preload() {
-    clownNose = loadImage('https://i.postimg.cc/9QByxRMy/clown.png');
+    clownNose = loadImage('https://i.postimg.cc/Xqm06YY8/clown.png');
+    Hat = loadImage('https://i.postimg.cc/L5rG0QxQ/hat.png');
+    tie = loadImage("https://i.postimg.cc/sgyGkjGy/bluetie.jpg")
 }
 
 function setup() {
@@ -22,7 +24,9 @@ function modelLoaded() {
 
 function draw() {
     image(video, 0, 0, 300, 300);
-    image(clowNose, noseX, nosY, 30, 30);
+    image(clownNose, noseX - 10, noseY - 10, 20, 20);
+    image(Hat, noseX - 50, noseY - 140, 100, 100);
+    image(tie, noseX - 10, noseY + 70, 35, 75);
 }
 
 function take_snapshot() {
@@ -32,6 +36,7 @@ function take_snapshot() {
 function gotPoses(results) {
     if (results.length > 0) {
         console.log(results);
+
         noseX = results[0].pose.nose.x;
         noseY = results[0].pose.nose.y;
         console.log("nose x = " + noseX);
